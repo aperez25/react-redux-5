@@ -1,8 +1,41 @@
 import React from 'react';
 import FilterInput from '../components/FilterInput';
 import Artists from '../components/Artists';
-
+// import { connect } from 'react-redux';
 import store from '../store';
+
+// React-Redux Attempt...Broken
+// const handleChange = function(evt) {
+//   this.setState({
+//     inputValue: evt.target.value
+//   });
+
+// const mapStateToProps = state => {
+//   return {
+//     inputValue: {
+//       inputValue: ''
+//     },
+//   };
+// };
+
+// const mapDispatchToProps = () => {
+//   return {
+//     handleChange: function(evt) {
+//       this.setState({
+//         inputValue: evt.target.value
+//       });
+//     }
+//   }
+// };
+
+// const ArtistsContainer = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Artists, FilterInput);
+
+// export default ArtistsContainer;
+
+
 
 class FilterableArtistsContainer extends React.Component {
 

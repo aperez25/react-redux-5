@@ -6,7 +6,7 @@ export default function (props) {
   return (
     <div>
       <h3>{ props.genreName } Station</h3>
-      <Songs 
+      <Songs
         songs={ props.songs }
         currentSong={ props.currentSong }
         isPlaying={ props.isPlaying }

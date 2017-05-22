@@ -17,7 +17,7 @@ const mapStateToProps = function (state, ownProps) {
 
 const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-	toggleOne: function (song, list) {
+	  toggleOne: function (song, list) {
       dispatch(toggleSong(song, list));
     }
   };
