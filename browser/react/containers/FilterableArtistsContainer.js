@@ -1,41 +1,14 @@
 import React from 'react';
 import FilterInput from '../components/FilterInput';
 import Artists from '../components/Artists';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import store from '../store';
 
-// React-Redux Attempt...Broken
-// const handleChange = function(evt) {
-//   this.setState({
-//     inputValue: evt.target.value
-//   });
-
-// const mapStateToProps = state => {
-//   return {
-//     inputValue: {
-//       inputValue: ''
-//     },
-//   };
-// };
-
-// const mapDispatchToProps = () => {
-//   return {
-//     handleChange: function(evt) {
-//       this.setState({
-//         inputValue: evt.target.value
-//       });
-//     }
-//   }
-// };
-
-// const ArtistsContainer = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Artists, FilterInput);
-
-// export default ArtistsContainer;
-
-
+const mapStateToProps = state => {
+  return {
+    artists: state.artists
+  };
+};
 
 class FilterableArtistsContainer extends React.Component {
 
@@ -43,22 +16,12 @@ class FilterableArtistsContainer extends React.Component {
 
     super();
 
-    this.state = Object.assign({
+    this.state = {
       inputValue: ''
-    }, store.getState().artists);
+    };
 
     this.handleChange = this.handleChange.bind(this);
 
-  }
-
-  componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState().artists);
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
   }
 
   handleChange(evt) {
@@ -70,7 +33,7 @@ class FilterableArtistsContainer extends React.Component {
   render() {
 
     const inputValue = this.state.inputValue;
-    const filteredArtists = this.state.list.filter(artist => artist.name.match(inputValue));
+    const filteredArtists = this.props.artists.list.filter(artist => artist.name.match(inputValue));
 
     return (
       <div>
@@ -84,4 +47,4 @@ class FilterableArtistsContainer extends React.Component {
   }
 }
 
-export default FilterableArtistsContainer;
+export default connect(mapStateToProps)(FilterableArtistsContainer);
