@@ -12,7 +12,7 @@ const Stations = (props) => {
 	        Object.keys(props.stations).map(genre => {
 	          return ( 
 	            <div className="list-group-item" key={genre}>
-	              <Link to={'fill/me/in/later'}>{genre}</Link>
+	              <Link to={`/stations/${genre}`}>{genre}</Link>
 	            </div>
 	          );
 	        })
@@ -24,4 +24,3 @@ const Stations = (props) => {
 }
 
 export default Stations
-// /genre/id

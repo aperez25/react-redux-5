@@ -1,6 +1,7 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import Stations from '../components/Stations';
-import React, {Component} from 'react';
+
 
 const convertSongsToStations = function (songsArray) {
 	const stations = {};
